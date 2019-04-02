@@ -13,7 +13,8 @@ namespace Persistence
         public string MoTa { get; set; }
         public string GhiChu { get; set; }
         public int SoNgay { get; set; }
-        public DateTime NgayDi { get; set; }
-        public string KhuyenMai { get; set; }
+        public string NgayDi { get; set; }
+        public int KhuyenMai { get; set; }
+        public int Gia { get; set; }
     }
 }

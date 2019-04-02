@@ -16,5 +16,18 @@ namespace Tour_Manager
         {
             InitializeComponent();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+           string ngay = dateTimePicker1.Value.ToString("MM/dd/yyyy") ;
+            label1.Text = ngay;
+
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            string ngay = dateTimePicker1.Value.ToString("MM/dd/yyyy");
+            label1.Text = ngay;
+        }
     }
 }

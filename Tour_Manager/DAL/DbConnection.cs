@@ -10,10 +10,10 @@ namespace DAL
 {
     public class DbConnection
     {
-        public SqlConnection OpenConnection()
+        public static SqlConnection OpenConnection()
         {
             SqlConnection conn = new SqlConnection();
-            conn.ConnectionString = @"Data Source=DESKTOP-P1BN3VG\SQLEXPRESS;Initial Catalog=tour_manager;Integrated Security=True";
+            conn.ConnectionString = @"Data Source=DESKTOP-P1BN3VG\SQLEXPRESS;Initial Catalog=tour_db;Integrated Security=True";
             conn.Open();
             return conn;
         }
