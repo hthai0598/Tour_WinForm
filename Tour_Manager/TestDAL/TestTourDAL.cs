@@ -17,7 +17,7 @@ namespace TestDAL
             DateTime a;
             string b = "2018/07/05";
             a = Convert.ToDateTime(b);
-            var tour = tourDAL.InsertTour("kk","Ha Long Bay", "Di Xa Lam", "Di xa", 2, a,10,1000);
+            var tour = tourDAL.InsertTour("kk","Ha Long Bay", "Di Xa Lam", "Di xa", 2, a,10,1000,"Active");
             Assert.IsTrue(tour);
         }
 
@@ -36,7 +36,7 @@ namespace TestDAL
             DateTime a;
             string b = "2018/08/05";
             a = Convert.ToDateTime(b);
-            var tour = tourDAL.EditTour("s","sng", "Di X", "Di", 10, a, 2,10000);
+            var tour = tourDAL.EditTour("s","sng", "Di X", "Di", 10, a, 2,10000,"Active");
             Assert.IsTrue(tour);
         }
 

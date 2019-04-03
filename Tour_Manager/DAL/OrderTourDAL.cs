@@ -77,7 +77,7 @@ namespace DAL
                     }
 
                 }
-                command.CommandText = "UPDATE dbo.OrderTour SET Tong = ((" + order.Tour_Order.Gia + "-(" + order.Tour_Order.Gia + "-" + order.Tour_Order.KhuyenMai + ")*" + order.SoTreEm + ")+(" + order.SoNguoiLon + "*" + order.Tour_Order.Gia + "))";
+                command.CommandText = "UPDATE dbo.OrderTour SET Tong = ((" + order.Tour_Order.Gia + "-(" + order.Tour_Order.Gia + "-" + order.Tour_Order.KhuyenMai + ")*" + order.SoTreEm + ")+(" + order.SoNguoiLon + "*" + order.Tour_Order.Gia + ")) WHERE OrderID = "+order.OrderID+" ";
                 command.ExecuteNonQuery();
                 result = true;
             }

@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BL;
+using Persistence;
 
 namespace Tour_Manager
 {
@@ -19,7 +21,16 @@ namespace Tour_Manager
 
         private void button1_Click(object sender, EventArgs e)
         {
+            FormCheckEmail formCheck = new FormCheckEmail();
+            this.Hide();
+            formCheck.Show();
+        }
 
+        private void button4_Click(object sender, EventArgs e)
+        {
+            FormTourManager formTourManager = new FormTourManager();
+            this.Hide();
+            formTourManager.ShowDialog();
         }
     }
 }

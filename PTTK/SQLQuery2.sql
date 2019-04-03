@@ -20,7 +20,8 @@ CREATE TABLE Tour
 	SoNgay int,
 	NgayDi DATETIME,
 	KhuyenMai int,
-	Gia INT
+	Gia INT,
+	TrangThai VARCHAR(50)
 
 )
 
@@ -54,8 +55,5 @@ VALUES  ( 'thaimeo@gmai.com', -- EmailKH - varchar(50)
           'Thái', -- TenKH - varchar(50)
           1233  -- PhoneKH - int
           )
-
-SELECT * FROM dbo.KhachHang WHERE EmailKH = 's';
-SELECT * FROM dbo.Tour 
-SELECT * FROM dbo.OrderTour;
-SELECT dbo.OrderTour.OrderID,dbo.KhachHang.EmailKH FROM dbo.OrderTour INNER JOIN dbo.Tour ON Tour.IDTour = OrderTour.IDTour INNER JOIN dbo.KhachHang ON KhachHang.EmailKH = OrderTour.EmailKH
+SELECT * FROM dbo.OrderTour
+SELECT * FROM dbo.Tour

@@ -13,7 +13,7 @@ namespace BL
     public class OrderTourBL
     {
         OrderTourDAL orderTourDAL = new OrderTourDAL();
-        public bool Create_Order(string email,int id, OrderTour order)
+        public bool Create_Order(string email,string id, OrderTour order)
         {
             return orderTourDAL.CreateOrder(email, id, order);
         }

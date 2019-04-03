@@ -20,10 +20,10 @@ namespace TestDAL
             orderTour.KH_Order = new KhachHang();
             orderTour.Tour_Order = new Tour();
             
-            orderTour.SoKH = 10;
-            orderTour.SoTreEm = 3;
-            orderTour.SoNguoiLon = 7;
-            Assert.IsTrue(orderTourDAL.CreateOrder("thaimeo@gmai.com", "kk", orderTour));
+            orderTour.SoKH = 12;
+            orderTour.SoTreEm = 6;
+            orderTour.SoNguoiLon = 6;
+            Assert.IsTrue(orderTourDAL.CreateOrder("thaimeo@gmai.com", "s", orderTour));
             
         }
     }

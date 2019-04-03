@@ -17,17 +17,22 @@ namespace BL
         {
             return tourDAL.GetAllTour();
         }
-        public bool InsertTour(string id,string name, string mota, string ghichu, int songay, DateTime ngaydi, int khuyenmai, int gia)
+        public DataTable GetAllTours()
         {
-            return tourDAL.InsertTour(id,name, mota, ghichu, songay, ngaydi, khuyenmai, gia);
+            return tourDAL.GetAllTours();
         }
-        public bool DeleteTour(int id)
+
+        public bool InsertTour(string id,string name, string mota, string ghichu, int songay, DateTime ngaydi, int khuyenmai, int gia,string trangthai)
+        {
+            return tourDAL.InsertTour(id,name, mota, ghichu, songay, ngaydi, khuyenmai, gia,trangthai);
+        }
+        public bool DeleteTour(string id)
         {
             return tourDAL.DeleteTour(id);
         }
-        public bool EditTour(int id, string name, string mota, string ghichu, int songay, string ngaydi, int khuyenmai,int gia)
+        public bool EditTour(string id, string name, string mota, string ghichu, int songay, DateTime ngaydi, int khuyenmai,int gia,string trangthai)
         {
-            return tourDAL.EditTour(id,name, mota, ghichu, songay, ngaydi, khuyenmai, gia);
+            return tourDAL.EditTour(id,name, mota, ghichu, songay, ngaydi, khuyenmai, gia,trangthai);
         }
     }
 }
