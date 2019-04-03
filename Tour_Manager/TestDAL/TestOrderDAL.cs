@@ -23,7 +23,7 @@ namespace TestDAL
             orderTour.SoKH = 10;
             orderTour.SoTreEm = 3;
             orderTour.SoNguoiLon = 7;
-            Assert.IsTrue(orderTourDAL.CreateOrder("thaimeo@gmai.com", 1, orderTour));
+            Assert.IsTrue(orderTourDAL.CreateOrder("thaimeo@gmai.com", "kk", orderTour));
             
         }
     }

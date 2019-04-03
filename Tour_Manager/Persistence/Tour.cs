@@ -8,12 +8,12 @@ namespace Persistence
 {
     public class Tour
     {
-        public int IdTour { get; set; }
+        public string IdTour { get; set; }
         public string TenTour { get; set; }
         public string MoTa { get; set; }
         public string GhiChu { get; set; }
         public int SoNgay { get; set; }
-        public string NgayDi { get; set; }
+        public DateTime NgayDi { get; set; }
         public int KhuyenMai { get; set; }
         public int Gia { get; set; }
     }

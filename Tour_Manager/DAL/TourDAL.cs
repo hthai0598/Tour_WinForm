@@ -16,21 +16,30 @@ namespace DAL
         {
             conn = DbConnection.OpenConnection();
         }
-        public Tour GetTourById(int id)
+        public DataTable GetAllTour()
+        {
+            string sql = "SELECT * FROM dbo.Tour";
+            DataTable dt = new DataTable();
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(dt);
+            return dt;
+        }
+        public Tour GetTourById(string id)
         {
             SqlDataReader reader;
             Tour tour = new Tour();
-            string query = "SELECT * FROM dbo.Tour WHERE IDTour= " + id + " ";
+            string query = "SELECT * FROM dbo.Tour WHERE IDTour= '" + id + "' ";
             SqlCommand command = new SqlCommand(query, conn);
             reader = command.ExecuteReader();
             if (reader.Read())
             {
-                tour.IdTour = (int)reader["IDTour"];
+                tour.IdTour = (string)reader["IDTour"];
                 tour.TenTour = (string)reader["TenTour"];
                 tour.MoTa = (string)reader["MoTa"];
                 tour.GhiChu = (string)reader["GhiChu"];
                 tour.SoNgay = (int)reader["SoNgay"];
-                tour.NgayDi = (string)reader["NgayDi"];
+                tour.NgayDi = (DateTime)reader["NgayDi"];
                 tour.KhuyenMai = (int)reader["KhuyenMai"];
                 tour.Gia = (int)reader["Gia"];
             }
@@ -39,12 +48,14 @@ namespace DAL
             return tour;
 
         }
-        public bool InsertTour(string name, string mota, string ghichu, int songay, string ngaydi, float khuyenmai, int gia)
+        public bool InsertTour(string id,string name, string mota, string ghichu, int songay, DateTime ngaydi, int khuyenmai, int gia)
         {
             bool result = true;
+           
+        
             try
             {
-                string query = "INSERT INTO dbo.Tour(TenTour ,Mota , GhiChu , SoNgay , NgayDi ,KhuyenMai,Gia)VALUES  ( '" + name + "' , '" + mota + "' ,'" + ghichu + "' , " + songay + " , '" + ngaydi + "' , " + khuyenmai + "," + gia + ")";
+                string query = "INSERT INTO dbo.Tour(IDTour,TenTour ,Mota , GhiChu , SoNgay , NgayDi ,KhuyenMai,Gia)VALUES  ( '"+id+"','" + name + "' , '" + mota + "' ,'" + ghichu + "' , " + songay + " , '" + ngaydi + "' , " + khuyenmai + "," + gia + ")";
                 SqlCommand com = new SqlCommand(query, conn);
                 com.ExecuteNonQuery();
             }
@@ -56,8 +67,10 @@ namespace DAL
             return result;
         }
 
+        
 
-        public bool DeleteTour(int id)
+
+        public bool DeleteTour(string id)
         {
             bool result = true;
             try
@@ -72,17 +85,18 @@ namespace DAL
             }
             return result;
         }
-        public bool EditTour(int id, string name, string mota, string ghichu, int songay, string ngaydi, int khuyenmai)
+        public bool EditTour(string id, string name, string mota, string ghichu, int songay, DateTime ngaydi, int khuyenmai, int gia)
         {
             bool result = true;
             try
             {
-                string query = "UPDATE dbo.Tour SET TenTour = '" + name + "', Mota='" + mota + "',GhiChu='" + ghichu + "',SoNgay= " + songay + ",NgayDi='" + ngaydi + "',KhuyenMai=" + khuyenmai + " ";
+                string query = "UPDATE dbo.Tour SET IDTour='"+id+"',TenTour = '" + name + "', Mota='" + mota + "',GhiChu='" + ghichu + "',SoNgay= " + songay + ",NgayDi='" + ngaydi + "',KhuyenMai=" + khuyenmai + ",Gia= "+gia+" WHERE IDTour = '"+id+"' ";
                 SqlCommand com = new SqlCommand(query, conn);
                 com.ExecuteNonQuery();
             }
-            catch (System.Exception)
+            catch (System.Exception e)
             {
+                Console.WriteLine(e.Message);
                 result = false;
             }
             return result;

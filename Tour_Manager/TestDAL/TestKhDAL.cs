@@ -13,10 +13,14 @@ namespace TestDAL
         [TestMethod]
         public void TestCheckKh()
         {
-            
-            KhachHang kh = new KhachHang();
-            kh.EmailKH = "thaimeo@gmail.com";
-            Assert.IsNull(khdal.CheckKhachHang(kh.EmailKH));
+            Assert.IsNotNull(khdal.CheckKhachHang("hihi@gmail.com"));
+        }
+
+
+        [TestMethod]
+        public void TestInsertKH()
+        {
+            Assert.IsTrue(khdal.InsertKH("hihi@gmail.com", "Long", 0904296456));
         }
     }
 }

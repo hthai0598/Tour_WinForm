@@ -18,21 +18,40 @@ namespace DAL
         }
         public KhachHang CheckKhachHang(string email)
         {
-            KhachHang kh = new KhachHang();
-            kh = null;
-            SqlDataReader reader;
-            string query = "SELECT * FROM dbo.KhachHang WHERE EmailKH = '" + email + "'  ";
-            SqlCommand com = new SqlCommand(query, conn);
-            reader = com.ExecuteReader();
-            if (reader.Read())
+                string query = @"select * from dbo.KhachHang where EmailKH = '"+email+"'";
+                SqlCommand com = new SqlCommand(query, conn);
+                SqlDataReader reader;
+                reader = com.ExecuteReader();
+                KhachHang kh = null; 
+                if (reader.Read())
+                {
+                kh = new KhachHang();
+                    kh.EmailKH = (string)reader["EmailKH"];
+                    kh.TenKH = (string)reader["TenKH"];
+                    kh.PhoneKH = (int)reader["PhoneKH"];
+                    return kh;
+                }
+                reader.Close();
+                conn.Close();
+                return kh;
+        }
+
+
+        public bool InsertKH(string id, string name, int phone)
+        {
+            bool result = true;
+            try
             {
-                kh.EmailKH = (string)reader["EmailKH"];
-                kh.TenKH = (string)reader["TenKK"];
-                kh.PhoneKH = (int)reader["PhoneKH"];
+                string query = "INSERT INTO dbo.KhachHang(EmailKH,TenKH,PhoneKH) VALUES ('" + id + "','" + name + "'," + phone + ")";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.ExecuteNonQuery();
+                result = true;
             }
-            reader.Close();
-            conn.Close();
-            return kh;
+            catch(System.Exception)
+            {
+                result = false;
+            }
+            return result;
         }
     }
 }

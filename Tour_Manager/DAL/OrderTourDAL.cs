@@ -18,7 +18,7 @@ namespace DAL
         }
       
 
-        public bool CreateOrder(string email,int tour_id, OrderTour order)
+        public bool CreateOrder(string email,string tour_id, OrderTour order)
         {
             
             bool result = true;
@@ -43,12 +43,12 @@ namespace DAL
                 
                 //Lấy ra mã Tour
 
-                command.CommandText = "SELECT * FROM dbo.Tour WHERE IDTour = " + tour_id + " ";
+                command.CommandText = "SELECT * FROM dbo.Tour WHERE IDTour = '" + tour_id + "' ";
                 using (reader = command.ExecuteReader())
                 {
                     if (reader.Read())
                     {
-                        order.Tour_Order.IdTour = (int)reader["IDTour"];
+                        order.Tour_Order.IdTour = (string)reader["IDTour"];
                         order.Tour_Order.Gia = (int)reader["Gia"];
                         order.Tour_Order.KhuyenMai = (int)reader["KhuyenMai"];
                     }
@@ -56,7 +56,7 @@ namespace DAL
                
                 
                 ////Thêm Bảng Order
-                command.CommandText = "INSERT INTO dbo.OrderTour( EmailKH ,IDTour,TrangThai ,NgayTao ,SoKH ,SoTreEm ,SoNguoiLon)VALUES  ( '" + order.KH_Order.EmailKH + "' , " + order.Tour_Order.IdTour + ", 'Active' ,GETDATE() , " + order.SoKH + " , " + order.SoTreEm + " ," + order.SoNguoiLon + ")";
+                command.CommandText = "INSERT INTO dbo.OrderTour( EmailKH ,IDTour,TrangThai ,NgayTao ,SoKH ,SoTreEm ,SoNguoiLon)VALUES  ( '" + order.KH_Order.EmailKH + "' , '" + order.Tour_Order.IdTour + "', 'Active' ,GETDATE() , " + order.SoKH + " , " + order.SoTreEm + " ," + order.SoNguoiLon + ")";
                 command.ExecuteNonQuery();
                 command.CommandText = "SELECT MAX(OrderID) AS OrderID FROM dbo.OrderTour";
                 using (reader = command.ExecuteReader())
