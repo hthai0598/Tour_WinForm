@@ -106,7 +106,7 @@ namespace DAL
             try
             {
                 result = true;
-                string query = "UPDATE dbo.OrderTour SET Tong = 0.2%100*Tong, TrangThai='NonActive' WHERE OrderID =" + id + "";
+                string query = "UPDATE dbo.OrderTour SET Tong = 0.2%100*Tong, TrangThai='Cancel' WHERE OrderID =" + id + "";
                 SqlCommand command = new SqlCommand(query, conn);
                 command.ExecuteNonQuery();
 
