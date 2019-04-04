@@ -11,7 +11,7 @@ namespace Persistence
     {
         public int IdThongKe { get; set; }
         public List<OrderTour> ListOrder { get; set; }
-        public int Tong { get; set; }
+        public float Tong { get; set; }
         public DateTime NgayXuat { get; set; }
     }
 }

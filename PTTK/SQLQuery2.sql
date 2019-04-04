@@ -31,7 +31,7 @@ CREATE TABLE OrderTour
 	OrderID int NOT NULL IDENTITY(1,1) PRIMARY KEY,
 	EmailKH VARCHAR(50) NOT NULL ,
 	IDTour VARCHAR(50) NOT NULL,
-	Tong int,
+	Tong FLOAT,
 	TrangThai VARCHAR(50),
 	NgayTao DATETIME,
 	SoKH INT,
@@ -45,7 +45,7 @@ CREATE TABLE ThongKe
 (
 	ThongKeID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
 	OrderId int NOT NULL,
-	Tong INT,
+	Tong FLOAT,
 	Ngay DATETIME,
 	FOREIGN KEY(OrderId) REFERENCES dbo.OrderTour(OrderID)
 )
@@ -56,4 +56,5 @@ VALUES  ( 'thaimeo@gmai.com', -- EmailKH - varchar(50)
           1233  -- PhoneKH - int
           )
 SELECT * FROM dbo.OrderTour
+UPDATE dbo.OrderTour SET Tong = 0.2%100*Tong WHERE OrderID = 1
 SELECT * FROM dbo.Tour

@@ -32,5 +32,12 @@ namespace Tour_Manager
             this.Hide();
             formTourManager.ShowDialog();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            FormEditOrder searchOrder = new FormEditOrder();
+            this.Hide();
+            searchOrder.ShowDialog();
+        }
     }
 }

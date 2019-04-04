@@ -17,5 +17,21 @@ namespace BL
         {
             return orderTourDAL.CreateOrder(email, id, order);
         }
+        public bool DeleteOrder(int id)
+        {
+            return orderTourDAL.DeleteOrder(id);
+        }
+        public DataTable GetAllOrderActive()
+        {
+            return orderTourDAL.GetAllOrderActive();
+        }
+        public OrderTour ReaderOrder(string id)
+        {
+            return orderTourDAL.ReaderOrder(id);
+        }
+        public bool UpdateOrder(int songuoi, int sotreem, int songuoilon, string room, int id)
+        {
+            return orderTourDAL.UpdateOrder(songuoi, sotreem, songuoilon, room, id);
+        }
     }
 }

@@ -44,7 +44,7 @@ namespace Tour_Manager
             dataGridView1.DataSource = get_tour;
             comboBox1.DataSource = get_tour;
             comboBox1.DisplayMember = "IDTour";
-            string id = comboBox1.SelectedItem.ToString();
+            
           
         }
        
@@ -113,6 +113,11 @@ namespace Tour_Manager
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
         {
 
         }

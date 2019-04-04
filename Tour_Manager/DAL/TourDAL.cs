@@ -25,6 +25,7 @@ namespace DAL
             da.Fill(dt);
             return dt;
         }
+        
         public DataTable GetAllTours()
         {
             string sql = "SELECT * FROM dbo.Tour";

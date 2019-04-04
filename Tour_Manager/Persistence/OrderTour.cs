@@ -12,7 +12,7 @@ namespace Persistence
         public KhachHang KH_Order { get; set; }
         public Tour Tour_Order { get; set; }
         public string NgayTao { get; set; }
-        public int Tong { get; set; }
+        public float Tong { get; set; }
         public int SoKH { get; set; }
         public int SoTreEm { get; set; }
         public int SoNguoiLon { get; set; }
