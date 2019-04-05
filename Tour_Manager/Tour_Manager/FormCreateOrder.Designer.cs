@@ -44,7 +44,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.IDTour = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenTour = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Mota = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,6 +52,7 @@
             this.NgayDi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.KhuyenMai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Gia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -108,7 +108,7 @@
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(78, 125);
+            this.textBox3.Location = new System.Drawing.Point(93, 125);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(34, 20);
             this.textBox3.TabIndex = 8;
@@ -143,18 +143,19 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(256, 132);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(56, 13);
+            this.label6.Size = new System.Drawing.Size(41, 13);
             this.label6.TabIndex = 4;
-            this.label6.Text = "Người Lớn";
+            this.label6.Text = "Trẻ Em";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(31, 132);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(41, 13);
+            this.label5.Size = new System.Drawing.Size(56, 13);
             this.label5.TabIndex = 3;
-            this.label5.Text = "Trẻ Em";
+            this.label5.Text = "Người Lớn";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label4
             // 

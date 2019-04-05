@@ -1,4 +1,4 @@
-﻿
+﻿0
 CREATE DATABASE tour_db
 USE tour_db;
 
@@ -49,6 +49,7 @@ CREATE TABLE ThongKe
 	Ngay DATETIME,
 	FOREIGN KEY(OrderId) REFERENCES dbo.OrderTour(OrderID)
 )
+
 INSERT INTO dbo.KhachHang
         ( EmailKH, TenKH, PhoneKH )
 VALUES  ( 'thaimeo@gmai.com', -- EmailKH - varchar(50)
@@ -56,5 +57,7 @@ VALUES  ( 'thaimeo@gmai.com', -- EmailKH - varchar(50)
           1233  -- PhoneKH - int
           )
 SELECT * FROM dbo.OrderTour
-UPDATE dbo.OrderTour SET Tong = 0.2%100*Tong WHERE OrderID = 1
+UPDATE dbo.OrderTour SET Tong = 20000 WHERE OrderID = 2
+UPDATE dbo.OrderTour SET Tong = ((gia-(gia*(km*0.01))*tre) + (nl*gia)) WHERE OrderID = 2
 SELECT * FROM dbo.Tour
+

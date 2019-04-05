@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Tour_Manager
 {
-    public partial class EditOrderTour : Form
+    public partial class FormThongKe : Form
     {
-        public EditOrderTour()
+        public FormThongKe()
         {
             InitializeComponent();
         }

@@ -77,7 +77,7 @@ namespace DAL
                     }
 
                 }
-                command.CommandText = "UPDATE dbo.OrderTour SET Tong = ((" + order.Tour_Order.Gia + "-(" + order.Tour_Order.Gia + "-" + order.Tour_Order.KhuyenMai + ")*" + order.SoTreEm + ")+(" + order.SoNguoiLon + "*" + order.Tour_Order.Gia + ")) WHERE OrderID = "+order.OrderID+" ";
+                command.CommandText = "UPDATE dbo.OrderTour SET Tong = (("+order.Tour_Order.Gia+ "-(" + order.Tour_Order.Gia + "*("+order.Tour_Order.KhuyenMai+ "*0.01)))*" + order.SoTreEm + " + (" + order.SoNguoiLon+"*"+order.Tour_Order.Gia+")) WHERE OrderID = " + order.OrderID +" "; 
                 command.ExecuteNonQuery();
                 result = true;
             }
@@ -119,23 +119,45 @@ namespace DAL
         }
 
 
+        public int Gia;
+        public int KhuyenMai;
         public bool UpdateOrder(int songuoi,int sotreem,int songuoilon, string room, int id)
         {
             bool result = true;
+            
+            
             try
             {
+             
+               
+                OrderTour order = new OrderTour();
+                SqlDataReader reader;
                 result = true;
                 string query = "UPDATE dbo.OrderTour SET SoKH ="+songuoi+",SoTreEm = "+sotreem+",SoNguoiLon = "+songuoilon+", IDTour = '"+room+"' WHERE OrderID = "+id+"";
                 SqlCommand cmd = new SqlCommand(query,conn);
                 cmd.ExecuteNonQuery();
-                string query1 = "UPDATE dbo.OrderTour SET Tong = 1 WHERE OrderID = "+id+"";
-                SqlCommand command = new SqlCommand(query1, conn);
-                command.ExecuteNonQuery();
+                string query2 = "SELECT * FROM dbo.Tour WHERE IDTour= '"+room+"'";
+                SqlCommand cmd2 = new SqlCommand(query2, conn);
+                using (reader = cmd2.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        order.Tour_Order = new Tour();
+                        order.Tour_Order.Gia = (int)reader["Gia"];
+                        order.Tour_Order.KhuyenMai = (int)reader["KhuyenMai"];
+                    }
+                    
+                }
+                string query1 = "UPDATE dbo.OrderTour SET Tong = ((" + order.Tour_Order.Gia + "-(" + order.Tour_Order.Gia + "*(" + order.Tour_Order.KhuyenMai + "*0.01)))*" + sotreem + " + (" + songuoilon + "*" + order.Tour_Order.Gia + ")) WHERE OrderID = " + id+"";
+                SqlCommand command1 = new SqlCommand(query1, conn);
+                command1.ExecuteNonQuery();
+                result = true;
                 
 
             }
-            catch(System.Exception)
+            catch(System.Exception e)
             {
+                Console.WriteLine(e.Message);
                 result = false;
             }
             return result;

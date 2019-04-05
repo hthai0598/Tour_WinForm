@@ -120,9 +120,8 @@ namespace Tour_Manager
         {
             
             OrderTourBL orderTourBL = new OrderTourBL();
-
-
-           
+            int Gia = orderTourBL.Gia;
+            int KhuyenMai = orderTourBL.KhuyenMai;
            try
             {
                 DialogResult dialogResult = MessageBox.Show("Ban Có Chắc Muốn Thay Đổi", "Some Title", MessageBoxButtons.YesNo);

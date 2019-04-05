@@ -12,6 +12,8 @@ namespace BL
 {
     public class OrderTourBL
     {
+        public int Gia;
+        public int KhuyenMai;
         OrderTourDAL orderTourDAL = new OrderTourDAL();
         public bool Create_Order(string email,string id, OrderTour order)
         {

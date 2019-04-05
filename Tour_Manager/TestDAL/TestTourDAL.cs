@@ -51,7 +51,7 @@ namespace TestDAL
         public void TestReaderTour()
         {
 
-            Assert.IsNotNull(tourDAL.GetTourById("s"));
+            Assert.IsNotNull(tourDAL.GetTourById("S"));
         }
     }
 }
