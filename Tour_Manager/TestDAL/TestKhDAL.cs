@@ -22,5 +22,15 @@ namespace TestDAL
         {
             Assert.IsTrue(khdal.InsertKH("hihi@gmail.com", "Long", 0904296456));
         }
+        [TestMethod]
+        public void TestUpdateKH()
+        {
+            Assert.IsTrue(khdal.UpdateKH("thaimeo@gmail.com","hanh",9999));
+        }
+        [TestMethod]
+        public void TestDeleteKH()
+        {
+            Assert.IsTrue(khdal.DeleteKH("thaimeo@gmail.com"));
+        }
     }
 }

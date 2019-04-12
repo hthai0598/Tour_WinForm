@@ -35,5 +35,13 @@ namespace BL
         {
             return orderTourDAL.UpdateOrder(songuoi, sotreem, songuoilon, room, id);
         }
+        public DataTable GetDate()
+        {
+            return orderTourDAL.GetDate();
+        }
+        public DataTable GetOrderInDay(string dateTime)
+        {
+            return orderTourDAL.GetOrderInDay(dateTime);
+        }
     }
 }

@@ -70,6 +70,12 @@
     <Compile Include="FormEditOrder.Designer.cs">
       <DependentUpon>FormEditOrder.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormKhManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormKhManager.Designer.cs">
+      <DependentUpon>FormKhManager.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormListTourMini.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +113,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormEditOrder.resx">
       <DependentUpon>FormEditOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormKhManager.resx">
+      <DependentUpon>FormKhManager.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormListTourMini.resx">
       <DependentUpon>FormListTourMini.cs</DependentUpon>

@@ -68,6 +68,10 @@ namespace Tour_Manager
                         MessageBox.Show("Tạo Thành Công");
                         var get_tour = tourBL.GetAllTour();
                         dataGridView1.DataSource = get_tour;
+                        FormMenu formMenu = new FormMenu();
+                        this.Hide();
+                        formMenu.ShowDialog();
+
                     }
                     else
                     {
@@ -84,7 +88,7 @@ namespace Tour_Manager
             catch(System.Exception)
             {
                 
-                MessageBox.Show("Bạn Nhập Sai");
+               
             }
         }
 

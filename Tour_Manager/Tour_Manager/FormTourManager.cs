@@ -100,6 +100,8 @@ namespace Tour_Manager
         {
             if (!Char.IsControl(e.KeyChar) && !Char.IsNumber(e.KeyChar))
                 e.Handled = true;
+            
+            
         }
 
         private void textBox5_KeyPress(object sender, KeyPressEventArgs e)
@@ -192,6 +194,11 @@ namespace Tour_Manager
             FormMenu formMenu = new FormMenu();
             this.Hide();
             formMenu.ShowDialog();
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

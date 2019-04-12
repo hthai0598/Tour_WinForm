@@ -145,6 +145,11 @@ namespace Tour_Manager
                             textBox3.Enabled = false;
                             textBox4.Enabled = false;
                             textBox5.Enabled = false;
+                            textBox1.Clear();
+                            textBox2.Clear();
+                            textBox3.Clear();
+                            textBox4.Clear();
+                            textBox5.Clear();
                         }
                         else
                         {
@@ -191,6 +196,11 @@ namespace Tour_Manager
             FormMenu formMenu = new FormMenu();
             this.Hide();
             formMenu.ShowDialog();
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

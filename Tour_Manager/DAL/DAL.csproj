@@ -45,7 +45,7 @@
     <Compile Include="DbConnection.cs" />
     <Compile Include="OrderTourDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ThongKe.cs" />
+    <Compile Include="ThongKeDAL.cs" />
     <Compile Include="TourDAL.cs" />
   </ItemGroup>
   <ItemGroup>

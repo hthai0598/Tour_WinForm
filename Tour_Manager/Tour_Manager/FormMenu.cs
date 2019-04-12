@@ -42,7 +42,16 @@ namespace Tour_Manager
 
         private void button3_Click(object sender, EventArgs e)
         {
+            FormThongKe formThongKe = new FormThongKe();
+            this.Hide();
+            formThongKe.ShowDialog();
+        }
 
+        private void button5_Click(object sender, EventArgs e)
+        {
+            FormKhManager formKhManager = new FormKhManager();
+            this.Hide();
+            formKhManager.ShowDialog();
         }
     }
 }

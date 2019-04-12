@@ -198,5 +198,42 @@ namespace DAL
             return order;
 
         }
+
+        public OrderTour ReaderOrder(SqlDataReader reader)
+        {
+            
+                OrderTour order = new OrderTour();
+                order.OrderID = (int)reader["OrderID"];
+                return order;
+            
+
+        }
+        public DataTable GetDate()
+        {
+            DataTable dt = new DataTable();
+            string query = "select DISTINCT CAST(NgayTao as date) AS date from dbo.OrderTour";
+            SqlCommand cmd = new SqlCommand(query,conn);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(dt);
+            return dt;
+        }
+        public DataTable GetOrderInDay(string s)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+
+                
+                string query = "select DISTINCT * FROM dbo.OrderTour where cast ( NgayTao as date) = '" + s + "';";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+            }
+            catch(System.Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            return dt;
+        }
     }
 }

@@ -51,5 +51,26 @@ namespace TestDAL
             orderTour.Tour_Order = new Tour();
             Assert.IsTrue(orderTourDAL.UpdateOrder(4, 3, 1, "S", 6));
         }
+
+
+        [TestMethod]
+        public void Test_thongke()
+        {
+
+            ThongKeDAL thongKeDAL = new ThongKeDAL();
+            OrderTour orderTour = new OrderTour();
+            Assert.IsNotNull(thongKeDAL.InsertThongKe());
+            
+        }
+
+        [TestMethod]
+        public void Test_ss()
+        {
+
+            ThongKeDAL thongKeDAL = new ThongKeDAL();
+            OrderTour orderTour = new OrderTour();
+            Assert.IsTrue(thongKeDAL.ss());
+
+        }
     }
 }

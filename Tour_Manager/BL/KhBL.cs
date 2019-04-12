@@ -21,6 +21,20 @@ namespace BL
         {
             return khDAL.InsertKH(id, name, phone);
         }
+        public bool UpdateKH(string email, string name, int phone)
+        {
+            return khDAL.UpdateKH(email, name, phone);
+        }
+        public bool DeleteKH(string email)
+        {
+            return khDAL.DeleteKH(email);
+        }
+        public DataTable GetKH()
+        {
+            return khDAL.GetKH();
+        }
+        
+
 
     }
 }

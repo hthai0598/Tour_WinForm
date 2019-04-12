@@ -42,7 +42,7 @@ namespace DAL
             bool result = true;
             try
             {
-                string query = "INSERT INTO dbo.KhachHang(EmailKH,TenKH,PhoneKH) VALUES ('" + id + "','" + name + "'," + phone + ")";
+                string query = "INSERT INTO dbo.KhachHang(EmailKH,TenKH,PhoneKH,Active) VALUES ('" + id + "','" + name + "'," + phone + ",'Active')";
                 SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.ExecuteNonQuery();
                 result = true;
@@ -52,6 +52,52 @@ namespace DAL
                 result = false;
             }
             return result;
+        }
+
+        public bool UpdateKH(string email, string name, int phone)
+        {
+            bool result = true;
+            try
+            {
+                result = true;
+                string query = "UPDATE dbo.KhachHang SET TenKH = '" + name + "', PhoneKH=" + phone + " WHERE EmailKH='" + email + "';";
+                SqlCommand com = new SqlCommand(query, conn);
+                com.ExecuteNonQuery();
+            }
+            catch (System.Exception e)
+            {
+                Console.WriteLine(e.Message);
+                result = false;
+            }
+            return result;
+
+        }
+        public bool DeleteKH(string email)
+        {
+            bool result = true;
+            try
+            {
+                result = true;
+                string query = "UPDATE dbo.KhachHang SET Active='NoActive' WHERE EmailKH='" + email + "';";
+                SqlCommand com = new SqlCommand(query, conn);
+                com.ExecuteNonQuery();
+            }
+            catch (System.Exception e)
+            {
+                Console.WriteLine(e.Message);
+                result = false;
+            }
+            return result;
+
+        }
+        public DataTable GetKH()
+        {
+            string sql = "SELECT * FROM dbo.KhachHang WHERE Active='Active'";
+            DataTable dt = new DataTable();
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(dt);
+            return dt;
         }
     }
 }
